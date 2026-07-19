@@ -479,7 +479,7 @@ export function EditorPage(props: EditorPageProps) {
       <NavigationStack>
         <VStack spacing={0} frame={{ maxWidth: "infinity", maxHeight: "infinity" }} tabBarVisibility="hidden"
           navigationTitle={fileName}
-          ignoresSafeArea={{ edges: ["bottom"] }}navigationBarTitleDisplayMode="inline"
+          ignoresSafeArea={{ regions: "container", edges: ["bottom"] }}navigationBarTitleDisplayMode="inline"
           toolbar={{
             topBarLeading: [
               <Button key="close" title="关闭" systemImage="xmark" action={handleClose} />,
@@ -534,7 +534,7 @@ export function EditorPage(props: EditorPageProps) {
             background={bgColor}
             controller={controller!}
             searchEnabled
-            showAccessoryView={false}
+            showAccessoryView={true}
             scriptName={fileName}
             frame={{ maxWidth: "infinity", maxHeight: "infinity" }}
           />
@@ -547,7 +547,7 @@ export function EditorPage(props: EditorPageProps) {
   if (mode === "fullscreen") {
     return (
       <VStack spacing={1} frame={{ maxWidth: "infinity", maxHeight: "infinity" }} tabBarVisibility="hidden"
-        ignoresSafeArea={{ edges: ["bottom"] }}
+        ignoresSafeArea={{ regions: "container", edges: ["bottom"] }}
         navigationTitle={fileName}
         navigationBarTitleDisplayMode="inline"
         toolbar={{
@@ -603,7 +603,7 @@ export function EditorPage(props: EditorPageProps) {
           background={bgColor}
           controller={controller!}
           searchEnabled
-          showAccessoryView={false}
+          showAccessoryView={true}
           scriptName={fileName}
           frame={{ maxWidth: "infinity", maxHeight: "infinity" }}
         />
@@ -614,11 +614,11 @@ export function EditorPage(props: EditorPageProps) {
   // preview 模式
   return (
     <NavigationStack>
-      <VStack ignoresSafeArea={{ edges: ["bottom"] }} alignment="leading" spacing={0}>
+      <VStack ignoresSafeArea={{ regions: "container", edges: ["bottom"] }} alignment="leading" spacing={0}>
         {renderFileHeader()}
         <Divider />
         <Editor
-          background={bgColor} controller={controller!} searchEnabled showAccessoryView={false} scriptName={fileName} frame={{ maxWidth: "infinity", maxHeight: "infinity" }} />
+          background={bgColor} controller={controller!} searchEnabled showAccessoryView={true} scriptName={fileName} frame={{ maxWidth: "infinity", maxHeight: "infinity" }} />
       </VStack>
     </NavigationStack>
   )
